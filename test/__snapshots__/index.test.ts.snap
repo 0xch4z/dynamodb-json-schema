@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getTableSchema should return proper table schema for valid JSON schema 1`] = `
+Object {
+  "AttributeDefintions": Array [
+    Object {
+      "AttributeName": "myHashKey",
+      "AttributeType": "S",
+    },
+  ],
+  "KeySchema": Array [
+    Object {
+      "AttributeName": "myHashKey",
+      "KeyType": "HASH",
+    },
+  ],
+  "TableName": "some-table",
+}
+`;
+
+exports[`getTableSchema should return proper table schema for valid JSON schema with secondary indexes 1`] = `
+Object {
+  "AttributeDefintions": Array [
+    Object {
+      "AttributeName": "id",
+      "AttributeType": "S",
+    },
+    Object {
+      "AttributeName": "login",
+      "AttributeType": "S",
+    },
+    Object {
+      "AttributeName": "name",
+      "AttributeType": "S",
+    },
+  ],
+  "GlobalSecondaryIndexes": Array [
+    Object {
+      "IndexName": "byLogin",
+      "KeySchema": Array [
+        Object {
+          "AttributeName": "login",
+          "KeyType": "HASH",
+        },
+      ],
+      "Projection": Object {
+        "NonKeyAttributes": undefined,
+        "ProjectionType": "ALL",
+      },
+    },
+  ],
+  "KeySchema": Array [
+    Object {
+      "AttributeName": "id",
+      "KeyType": "HASH",
+    },
+  ],
+  "LocalSecondaryIndexes": Array [
+    Object {
+      "IndexName": "byName",
+      "KeySchema": Array [
+        Object {
+          "AttributeName": "name",
+          "KeyType": "RANGE",
+        },
+      ],
+      "Projection": Object {
+        "NonKeyAttributes": undefined,
+        "ProjectionType": "ALL",
+      },
+    },
+  ],
+  "TableName": "user-table",
+}
+`;
