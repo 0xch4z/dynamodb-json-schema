@@ -4,11 +4,11 @@ import {
   GlobalSecondaryIndex,
   LocalSecondaryIndex,
   Projection
-} from 'aws-sdk/clients/dynamodb';
-import { JSONSchema, assertJSONSchemaObject, JSONSchemaObject } from './schema';
+} from "aws-sdk/clients/dynamodb";
+import { JSONSchema, assertJSONSchemaObject, JSONSchemaObject } from "./schema";
 
-import { mustInferIndexableScalarType } from './scalar';
-import { pluckUndefinedObjectValues } from './util';
+import { mustInferIndexableScalarType } from "./scalar";
+import { pluckUndefinedObjectValues } from "./util";
 
 export interface TableSchema {
   AttributeDefintions: AttributeDefinitions;
@@ -46,7 +46,7 @@ export interface SecondaryIndex {
   Projection: Projection;
 }
 
-export interface GenerateSchemaOptions {
+export interface GetTableSchemaOptions {
   tableName?: string;
   hashKey: string;
   rangeKey?: string;
@@ -56,8 +56,8 @@ export interface GenerateSchemaOptions {
 }
 
 export const enum IndexKeyType {
-  Hash = 'HASH',
-  Range = 'RANGE'
+  Hash = "HASH",
+  Range = "RANGE"
 }
 
 export function getUniqueIndexedAttributes(indexes: IndexDefinition[]) {
@@ -89,7 +89,7 @@ function getAttributeDefinitionsFromSchema(
 ) {
   return indexedAttributes.map(attribute => {
     const attributeSchema = schema.properties[attribute];
-    if (typeof attributeSchema !== 'object') {
+    if (typeof attributeSchema !== "object") {
       throw new Error(
         `Could not find schema definiton for specified indexed attribute '${attribute}'`
       );
@@ -120,7 +120,7 @@ export function getTableSchema({
   rangeKey,
   gsis = [],
   lsis = []
-}: GenerateSchemaOptions): TableSchema {
+}: GetTableSchemaOptions): TableSchema {
   const schemaObject = assertJSONSchemaObject(itemSchema);
   const indexes = [{ hashKey, rangeKey }, ...gsis, ...lsis];
   const indexedAttributes = getUniqueIndexedAttributes(indexes);
