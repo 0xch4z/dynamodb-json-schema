@@ -1,4 +1,4 @@
-# dynamodb-json-schema [![Build Status](https://travis-ci.org/charliekenney23/dynamodb-json-schema.svg?branch=master)](https://travis-ci.org/charliekenney23/dynamodb-json-schema)
+# dynamodb-json-schema [![Build Status](https://travis-ci.org/charliekenney23/dynamodb-json-schema.svg?branch=master)](https://travis-ci.org/charliekenney23/dynamodb-json-schema) [![Greenkeeper badge](https://badges.greenkeeper.io/Charliekenney23/dynamodb-json-schema.svg)](https://greenkeeper.io/)
 
 > Generate dynamodb table schema from json schema
 
