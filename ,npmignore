@@ -1,0 +1,5 @@
+/test/
+jest.config.js
+.travis.yml
+prettierrc.toml
+tsconfig.json
