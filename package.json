@@ -12,7 +12,7 @@
     "build": "tsc -p ."
   },
   "devDependencies": {
-    "@types/jest": "^25.1.0",
+    "@types/jest": "^25.2.1",
     "@types/node": "^13.1.0",
     "jest": "^24.8.0",
     "ts-jest": "^25.1.0",
